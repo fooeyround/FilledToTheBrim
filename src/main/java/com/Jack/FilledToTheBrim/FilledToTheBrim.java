@@ -4,12 +4,12 @@ package com.Jack.FilledToTheBrim;
 
 
 import net.fabricmc.api.ModInitializer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FilledToTheBrim implements ModInitializer {
 
-    public static final Logger LOGGER = LogManager.getLogger("FilledToTheBrim");
+    public static final Logger LOGGER = LoggerFactory.getLogger("FilledToTheBrim");
     //Maybe a Main Toggle in the Future?
     public static boolean IS_ENABLED = true;
 

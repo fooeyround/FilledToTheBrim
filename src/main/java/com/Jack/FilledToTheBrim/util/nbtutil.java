@@ -34,11 +34,12 @@ public class nbtutil {
 
     @Nullable
     public static NbtCompound getBlockEntityTag(ItemStack stack) {
-        NbtCompound tag = stack.getTag();
+        NbtCompound tag = stack.getNbt();
         return tag == null ? null : getTagOrNull(tag, "BlockEntityTag", TAG_COMPOUND);
     }
 
     @Nullable
+    @SuppressWarnings("unchecked")
     public static <T extends NbtElement> T getTagOrNull(NbtCompound tag, String key, int type) {
         if (!tag.contains(key, type)) return null;
         //noinspection unchecked
@@ -57,7 +58,7 @@ public class nbtutil {
         }
 
         if (bet.isEmpty()) {
-            stack.setTag(null);
+            stack.setNbt(null);
             changed = true;
         }
 
