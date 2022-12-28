@@ -35,3 +35,5 @@ credentials.properties
 old/
 *.class
 *.jar
+
+!gradle/wrapper/*.jar
