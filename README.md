@@ -3,7 +3,7 @@
 
 ## Forge
 
-# This is The Forge Version of the Mod If you are looking for fabric, go to any branch that does not start with  Forge/
+# This is The Forge Version of the Mod If you are looking for fabric, go to any branch that does not start with  Forge
 
 
 
