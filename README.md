@@ -3,6 +3,7 @@
 [![Modrinth downloads](https://img.shields.io/modrinth/dt/filledtothebrim?label=Modrinth%20Downloads&style=flat-square)](https://modrinth.com/mod/filledtothebrim)
 [![Modrinth Versions](https://img.shields.io/modrinth/game-versions/filledtothebrim)](https://modrinth.com/mod/filledtothebrim)
 ![CurseForge Downloads](https://cf.way2muchnoise.eu/full_filledtothebrim_downloads.svg)
+![My User downloads](https://cf.way2muchnoise.eu/author/full_jackmclive_user downloads.svg)
 ![CurseForge Versions](https://cf.way2muchnoise.eu/versions/jei_latest.svg)
 [![GitHub downloads](https://img.shields.io/github/downloads/JackTheDevel0per/FilledToTheBrim/total?label=Github%20downloads&logo=github)](https://github.com/JackTheDevel0per/FilledToTheBrim/releases)
 
