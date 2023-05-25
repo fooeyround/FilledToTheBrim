@@ -23,7 +23,7 @@ public class ShulkerBoxHelper {
     public static boolean canInsertintoShulkerBox(Block block, ItemStack stack) {
 
 
-        boolean emptyBox_and_Enabled = NbtUtil.isEmptyShulkerBox(stack) && FilledToTheBrim.IS_ENABLED && (!FilledToTheBrim.rule_noEffectOnMagenta || !block.is(Blocks.MAGENTA_SHULKER_BOX));
+        boolean emptyBox_and_Enabled = NbtUtil.isEmptyShulkerBox(stack) && FilledToTheBrim.IS_ENABLED && (!FilledToTheBrim.rule_noEffectOnMagenta || !(block == Blocks.MAGENTA_SHULKER_BOX));
 
         return !(Block.getBlockFromItem(stack.getItem()) instanceof ShulkerBoxBlock) || emptyBox_and_Enabled;
     }
