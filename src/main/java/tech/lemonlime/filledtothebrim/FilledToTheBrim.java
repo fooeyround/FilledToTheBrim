@@ -18,7 +18,7 @@
  * along with TemplateMod.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package me.fallenbreath.template_mod;
+package tech.lemonlime.filledtothebrim;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -26,19 +26,35 @@ import net.fabricmc.loader.api.metadata.ModMetadata;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class TemplateMod implements ModInitializer
-{
-	public static final Logger LOGGER = LogManager.getLogger();
-
-	public static final String MOD_ID = "template_mod";
+public class FilledToTheBrim implements ModInitializer {
+	public static final Logger LOGGER = LogManager.getLogger("FilledToTheBrim");
+	public static final String MOD_ID = "filledtothebrim";
 	public static String MOD_VERSION = "unknown";
 	public static String MOD_NAME = "unknown";
 
+
+
+	public static boolean IS_ENABLED = true;
+
+
+	//This will soon be a part of a config... soon :tm:
+	public static boolean rule_noEffectOnMagenta = false;
+
 	@Override
-	public void onInitialize()
-	{
+	public void onInitialize() {
+
+		LOGGER.info("[Filled To the Brim]: Loading...");
+
 		ModMetadata metadata = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(RuntimeException::new).getMetadata();
 		MOD_NAME = metadata.getName();
 		MOD_VERSION = metadata.getVersion().getFriendlyString();
+
+		ModItemTags.registerTags();
+
+
+		LOGGER.info("[Filled To the Brim]: Loaded!");
+
+
+
 	}
 }

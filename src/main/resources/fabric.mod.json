@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "${id}",
+  "id": "filledtothebrim",
   "version": "${version}",
 
-  "name": "${name}",
-  "description": "",
+  "name": "Filled To The Brim",
+  "description": "Empty Shulker Boxes Fit inside Shulker Boxes",
   "authors": [
-    "Fallen_Breath"
+    "Jack"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/",
-    "sources": "https://github.com/"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/filledtothebrim",
+    "sources": "https://github.com/JackTheDevel0per/FilledToTheBrim/"
   },
 
-  "icon": "assets/template_mod/icon.png",
+  "icon": "assets/fttb/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "me.fallenbreath.template_mod.TemplateMod"
+      "tech.lemonlime.filledtothebrim.FilledToTheBrim"
     ]
   },
   "mixins": [
-    "template_mod.mixins.json"
+    "filledtothebrim.mixins.json"
   ],
-
+  "accessWidener": "filledtothebrim.accesswidener",
   "depends": {
     "fabricloader": ">=0.11.4",
     "minecraft": "${minecraft_dependency}"

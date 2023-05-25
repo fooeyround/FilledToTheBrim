@@ -26,6 +26,11 @@ configurations {
 	modRuntimeOnly.exclude group: 'net.fabricmc', module: 'fabric-loader'
 }
 
+loom {
+	accessWidenerPath = file("../../src/main/resources/filledtothebrim.accesswidener")
+}
+
+
 dependencies {
 	// loom
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -38,7 +43,7 @@ dependencies {
 //	}
 
 	// dependencies
-//	include(modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_api_version)))
+	include(modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_api_version)))
 }
 
 loom {
@@ -97,7 +102,7 @@ processResources {
 // https://github.com/Fallen-Breath/yamlang
 yamlang {
 	targetSourceSets = [sourceSets.main]
-	inputDir = 'assets/template_mod/lang'
+	inputDir = 'assets/fttb/lang'
 }
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is
@@ -148,7 +153,7 @@ license {
 	}
 	ext {
 		name = project.mod_name
-		author = 'Fallen_Breath'
+		author = 'Jack'
 		year = Calendar.getInstance().get(Calendar.YEAR).toString()
 	}
 }

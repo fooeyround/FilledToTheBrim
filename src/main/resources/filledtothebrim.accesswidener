@@ -1,0 +1,3 @@
+accessWidener v1 named
+
+accessible method net/minecraft/tag/ItemTags register (Ljava/lang/String;)Lnet/minecraft/tag/Tag$Identified;
