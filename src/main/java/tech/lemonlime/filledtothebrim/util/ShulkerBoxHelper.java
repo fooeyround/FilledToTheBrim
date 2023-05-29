@@ -11,12 +11,8 @@
 package tech.lemonlime.filledtothebrim.util;
 
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.item.ItemStack;
-import tech.lemonlime.filledtothebrim.FilledToTheBrim;
 import tech.lemonlime.filledtothebrim.ModTags;
 
 public class ShulkerBoxHelper {
