@@ -49,7 +49,7 @@ public class FilledToTheBrim implements ModInitializer {
 		MOD_NAME = metadata.getName();
 		MOD_VERSION = metadata.getVersion().getFriendlyString();
 
-		ModItemTags.registerTags();
+		ModTags.registerTags();
 
 
 		LOGGER.info("[Filled To the Brim]: Loaded!");

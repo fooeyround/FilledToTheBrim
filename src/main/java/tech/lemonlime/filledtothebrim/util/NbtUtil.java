@@ -15,6 +15,7 @@ import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
@@ -85,6 +86,28 @@ public class NbtUtil {
         return item instanceof BlockItem && ((BlockItem) item).getBlock() instanceof ShulkerBoxBlock && !hasShulkerBoxItems(stack);
     }
 
+
+
+    //checking for bundle in newer versions
+    public static boolean isEmptyHeldContainer(ItemStack stack) {
+
+//#if MC >= 11700
+//$$        if (stack.getItem().equals(Items.BUNDLE)) {
+//$$            NbtCompound nbtCompound = stack.getOrCreateNbt();
+//$$            if (!nbtCompound.contains("Items")) {
+//$$                return true;
+//$$            } else {
+//$$                NbtList nbtList = nbtCompound.getList("Items", 10);
+//$$                return nbtList.isEmpty();
+//$$
+//$$            }
+//$$
+//$$
+//$$        }
+//#endif
+        return isEmptyShulkerBox(stack);
+
+    }
 
 }
 

@@ -11,21 +11,55 @@
 package tech.lemonlime.filledtothebrim.util;
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.item.ItemStack;
 import tech.lemonlime.filledtothebrim.FilledToTheBrim;
+import tech.lemonlime.filledtothebrim.ModTags;
 
 public class ShulkerBoxHelper {
 
 
+    public static boolean checkInsert(Block block, ItemStack stack) {
+
+
+
+        //Check not_nestable first, if in there disregard.
+
+        //Before all else, check if the block is in the not_empty_nestable (Block Tag)
+        //Check nestable_when_empty after, if in there and is empty, (For Now Check if it is a box)
+
+
+        if (stack.getItem().isIn(ModTags.NESTABLE_WHEN_EMPTY)) {
+            return true;
+        }
+
+        if (stack.getItem().isIn(ModTags.NOT_NESTABLE)) {
+            return false;
+        }
+
+        if (block.isIn(ModTags.NOT_EMPTY_NESTABLE)) {
+            return false;
+        }
+
+
+
+        return false;
+    }
+
+
+
     public static boolean canInsertintoShulkerBox(Block block, ItemStack stack) {
 
+        if (stack.getItem().isIn(ModTags.NOT_NESTABLE)) return false;
 
-        boolean emptyBox_and_Enabled = NbtUtil.isEmptyShulkerBox(stack) && FilledToTheBrim.IS_ENABLED && (!FilledToTheBrim.rule_noEffectOnMagenta || !(block == Blocks.MAGENTA_SHULKER_BOX));
+        if (!block.isIn(ModTags.NOT_EMPTY_NESTABLE) && stack.getItem().isIn(ModTags.NESTABLE_WHEN_EMPTY)) {
+            return NbtUtil.isEmptyHeldContainer(stack);
+        }
 
-        return !(Block.getBlockFromItem(stack.getItem()) instanceof ShulkerBoxBlock) || emptyBox_and_Enabled;
+        return true;
     }
 
 }

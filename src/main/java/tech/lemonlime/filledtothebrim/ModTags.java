@@ -10,11 +10,13 @@
 
 package tech.lemonlime.filledtothebrim;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 
-public class ModItemTags {
+public class ModTags {
 
     public static void registerTags() {}
 
@@ -23,8 +25,14 @@ public class ModItemTags {
 
     //#if MC >= 11600
     public static final Tag.Identified<Item> NOT_NESTABLE = ItemTags.register("not_nestable");
+    public static final Tag.Identified<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("nestable_when_empty");
+    public static final Tag.Identified<Block> NOT_EMPTY_NESTABLE = BlockTags.register("not_empty_nestable");
+
+
     //#elseif MC >= 11400
     //$$ public static final Tag<Item> NOT_NESTABLE = ItemTags.register("not_nestable");
+    //$$ public static final Tag<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("nestable_when_empty");
+    //$$ public static final Tag<Block> NOT_EMPTY_NESTABLE = BlockTags.register("not_empty_nestable");
     //#endif
 
 
