@@ -51,11 +51,9 @@ public class ModTags {
 
 
     public static boolean isBlockInTag(Block block, Object tag) {
-
-        //#if MC < 11600
-        //$$return block.matches((Tag<Block>) tag);
-        //#elseif MC < 11800
-        return block.isIn((Tag<Block>) tag);
+        
+        //#if MC < 11800
+        return ((Tag<Block>) tag).contains(block);
         //#else
         //$$return block.getRegistryEntry().isIn((TagKey<Block>) tag);
         //#endif
@@ -63,9 +61,9 @@ public class ModTags {
 
     public static boolean isItemInTag(Item item, Object tag) {
 
-        
+
         //#if MC < 11800
-        return item.isIn((Tag<Item>) tag);
+        return ((Tag<Item>)tag).contains(item);
         //#else
         //$$return item.getRegistryEntry().isIn((TagKey<Item>) tag);
         //#endif
