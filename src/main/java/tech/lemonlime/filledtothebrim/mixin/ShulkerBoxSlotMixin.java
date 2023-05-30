@@ -29,6 +29,7 @@ public class ShulkerBoxSlotMixin {
 
     @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
     private void canInsert(ItemStack stack, CallbackInfoReturnable<Boolean> ci) {
+        //For Now, It will not actually work with player interaction :(
         ci.setReturnValue(ShulkerBoxHelper.canInsertIntoShulkerBox(Blocks.SHULKER_BOX,stack));
 
     }
