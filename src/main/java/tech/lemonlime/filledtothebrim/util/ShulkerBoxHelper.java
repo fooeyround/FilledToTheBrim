@@ -23,8 +23,8 @@ public class ShulkerBoxHelper {
 
         if (ModTags.isItemInTag(stack.getItem(),ModTags.NOT_NESTABLE)) return false;
 
-        if (!ModTags.isBlockInTag(block,ModTags.NOT_EMPTY_NESTABLE) && ModTags.isItemInTag(stack.getItem(),ModTags.NESTABLE_WHEN_EMPTY)) {
-            return NbtUtil.isEmptyHeldContainer(stack);
+        if (ModTags.isItemInTag(stack.getItem(),ModTags.NESTABLE_WHEN_EMPTY)) {
+            return ModTags.isBlockInTag(block,ModTags.NOT_EMPTY_NESTABLE) && NbtUtil.isEmptyHeldContainer(stack);
         }
 
         return true;
