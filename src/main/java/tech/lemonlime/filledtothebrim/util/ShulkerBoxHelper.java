@@ -19,7 +19,7 @@ public class ShulkerBoxHelper {
 
 
 
-    public static boolean canInsertintoShulkerBox(Block block, ItemStack stack) {
+    public static boolean canInsertIntoShulkerBox(Block block, ItemStack stack) {
 
         if (ModTags.isItemInTag(stack.getItem(),ModTags.NOT_NESTABLE)) return false;
 

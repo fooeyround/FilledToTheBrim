@@ -29,6 +29,6 @@ public abstract class ShulkerBoxBlockEntityMixin {
 
     @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
     private void canInsert(int slot, ItemStack stack, @Nullable Direction dir, CallbackInfoReturnable<Boolean> ci) {
-        ci.setReturnValue(ShulkerBoxHelper.canInsertintoShulkerBox(((BlockEntity)(Object)this).getWorld().getBlockState(((BlockEntity)(Object)this).getPos()).getBlock(),stack));
+        ci.setReturnValue(ShulkerBoxHelper.canInsertIntoShulkerBox(((BlockEntity)(Object)this).getWorld().getBlockState(((BlockEntity)(Object)this).getPos()).getBlock(),stack));
     }
 }

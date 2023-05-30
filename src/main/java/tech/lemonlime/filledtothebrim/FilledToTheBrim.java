@@ -31,14 +31,7 @@ public class FilledToTheBrim implements ModInitializer {
 	public static final String MOD_ID = "filledtothebrim";
 	public static String MOD_VERSION = "unknown";
 	public static String MOD_NAME = "unknown";
-
-
-
-	public static boolean IS_ENABLED = true;
-
-
-	//This will soon be a part of a config... soon :tm:
-	public static boolean rule_noEffectOnMagenta = false;
+	
 
 	@Override
 	public void onInitialize() {

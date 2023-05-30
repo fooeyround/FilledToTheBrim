@@ -29,7 +29,7 @@ public class ShulkerBoxSlotMixin {
 
     @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
     private void canInsert(ItemStack stack, CallbackInfoReturnable<Boolean> ci) {
-        ci.setReturnValue(ShulkerBoxHelper.canInsertintoShulkerBox(Blocks.SHULKER_BOX,stack));
+        ci.setReturnValue(ShulkerBoxHelper.canInsertIntoShulkerBox(Blocks.SHULKER_BOX,stack));
 
     }
 }
