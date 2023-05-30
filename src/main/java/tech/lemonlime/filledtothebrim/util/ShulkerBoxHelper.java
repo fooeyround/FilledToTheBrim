@@ -21,9 +21,9 @@ public class ShulkerBoxHelper {
 
     public static boolean canInsertintoShulkerBox(Block block, ItemStack stack) {
 
-        if (ModTags.NOT_NESTABLE.contains(stack.getItem())) return false;
+        if (ModTags.isItemInTag(stack.getItem(),ModTags.NOT_NESTABLE)) return false;
 
-        if (!ModTags.NOT_EMPTY_NESTABLE.contains(block) && ModTags.NESTABLE_WHEN_EMPTY.contains(stack.getItem())) {
+        if (!ModTags.isBlockInTag(block,ModTags.NOT_EMPTY_NESTABLE) && ModTags.isItemInTag(stack.getItem(),ModTags.NESTABLE_WHEN_EMPTY)) {
             return NbtUtil.isEmptyHeldContainer(stack);
         }
 
