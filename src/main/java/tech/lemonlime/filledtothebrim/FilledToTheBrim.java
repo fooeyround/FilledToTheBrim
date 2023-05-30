@@ -31,7 +31,7 @@ public class FilledToTheBrim implements ModInitializer {
 	public static final String MOD_ID = "filledtothebrim";
 	public static String MOD_VERSION = "unknown";
 	public static String MOD_NAME = "unknown";
-	
+
 
 	@Override
 	public void onInitialize() {
