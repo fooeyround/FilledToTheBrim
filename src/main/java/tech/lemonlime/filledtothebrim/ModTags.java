@@ -63,10 +63,8 @@ public class ModTags {
 
     public static boolean isItemInTag(Item item, Object tag) {
 
-
-        //#if MC < 11600
-        //$$return item.matches((Tag<Item>) tag);
-        //#elseif MC < 11800
+        
+        //#if MC < 11800
         return item.isIn((Tag<Item>) tag);
         //#else
         //$$return item.getRegistryEntry().isIn((TagKey<Item>) tag);
