@@ -28,6 +28,8 @@ configurations {
 
 loom {
 	accessWidenerPath = file("src/main/resources/filledtothebrim.accesswidener")
+//	accessWidenerPath = file("../../src/main/resources/filledtothebrim.accesswidener")
+
 }
 
 
