@@ -50,7 +50,7 @@ public class ClientPlayNetworkHandlerMixin {
 
     //#elseif MC < 11600
 
-
+    
 
 //$$    @Inject(method = "onSynchronizeTags", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/Multimap;isEmpty()Z"), locals = LocalCapture.CAPTURE_FAILHARD)
 //$$    private void ignoreMissingCarpetTags(SynchronizeTagsS2CPacket packet, CallbackInfo ci, RegistryTagManager manager, Multimap<Identifier, Identifier> map) {
@@ -65,6 +65,8 @@ public class ClientPlayNetworkHandlerMixin {
 
 
     //#elseif MC < 11700
+
+
     @Inject(method = "onSynchronizeTags", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/Multimap;isEmpty()Z"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void ignoreMissingCarpetTags(SynchronizeTagsS2CPacket packet, CallbackInfo ci, TagManager manager, Multimap<Identifier, Identifier> map) {
 
@@ -76,6 +78,8 @@ public class ClientPlayNetworkHandlerMixin {
     }
 
     //#elseif MC < 11800
+
+
 
 //$$    @Inject(method = "onSynchronizeTags", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/Multimap;isEmpty()Z", remap = false), locals = LocalCapture.CAPTURE_FAILHARD)
 //$$    private void ignoreMissingCarpetTags(SynchronizeTagsS2CPacket packet, CallbackInfo ci, TagManager manager, Multimap<RegistryKey<? extends Registry<?>>, Identifier> map) {
