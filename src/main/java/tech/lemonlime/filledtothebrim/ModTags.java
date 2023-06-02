@@ -14,9 +14,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
+import net.minecraft.util.Identifier;
 //#if MC < 11900
 import net.minecraft.tag.Tag;
-import net.minecraft.util.Identifier;
 //#endif
 //#if MC >= 11800
 //$$import net.minecraft.tag.TagKey;
