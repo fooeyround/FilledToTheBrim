@@ -16,6 +16,7 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 //#if MC < 11900
 import net.minecraft.tag.Tag;
+import net.minecraft.util.Identifier;
 //#endif
 //#if MC >= 11800
 //$$import net.minecraft.tag.TagKey;
@@ -33,17 +34,17 @@ public class ModTags {
 
 
     //#if MC < 11600
-    //$$ public static final Tag<Item> NOT_NESTABLE = ItemTags.register("not_nestable");
-    //$$ public static final Tag<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("nestable_when_empty");
-    //$$ public static final Tag<Block> NOT_EMPTY_NESTABLE = BlockTags.register("not_empty_nestable");
+    //$$ public static final Tag<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+    //$$ public static final Tag<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+    //$$ public static final Tag<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
     //#elseif MC < 11800
-    public static final Tag.Identified<Item> NOT_NESTABLE = ItemTags.register("not_nestable");
-    public static final Tag.Identified<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("nestable_when_empty");
-    public static final Tag.Identified<Block> NOT_EMPTY_NESTABLE = BlockTags.register("not_empty_nestable");
+    public static final Tag.Identified<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+    public static final Tag.Identified<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+    public static final Tag.Identified<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
     //#else
-    //$$    public static final TagKey<Item> NOT_NESTABLE = ItemTags.register("not_nestable");
-    //$$    public static final TagKey<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("nestable_when_empty");
-    //$$    public static final TagKey<Block> NOT_EMPTY_NESTABLE = BlockTags.register("not_empty_nestable");
+    //$$    public static final TagKey<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+    //$$    public static final TagKey<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+    //$$    public static final TagKey<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
     //#endif
 
 
@@ -71,6 +72,10 @@ public class ModTags {
         //#endif
     }
 
+
+    public static boolean syncShouldIgnore(Identifier key) {
+        return key.getNamespace().equals("fttb");
+    }
 
 
 
