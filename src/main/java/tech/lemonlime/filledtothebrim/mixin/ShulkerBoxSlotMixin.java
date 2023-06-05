@@ -24,7 +24,7 @@ import tech.lemonlime.filledtothebrim.util.ShulkerBoxHelper;
 
 
 @Mixin(value = ShulkerBoxSlot.class, priority = 69)
-public class ShulkerBoxSlotMixin {
+public class    ShulkerBoxSlotMixin {
 
 
     @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)

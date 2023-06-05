@@ -11,12 +11,15 @@
 package tech.lemonlime.filledtothebrim;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.item.Item;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Identifier;
 //#if MC < 11900
 import net.minecraft.tag.Tag;
+import tech.lemonlime.filledtothebrim.util.NbtUtil;
+import tech.lemonlime.filledtothebrim.util.ShulkerBoxHelper;
 //#endif
 //#if MC >= 11800
 //$$import net.minecraft.tag.TagKey;
@@ -24,28 +27,70 @@ import net.minecraft.tag.Tag;
 
 public class ModTags {
 
-    public static void registerTags() {}
-
-
-
-
-
-
-
 
     //#if MC < 11600
-    //$$ public static final Tag<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
-    //$$ public static final Tag<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
-    //$$ public static final Tag<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+    //$$ public static Tag<Item> NOT_NESTABLE;
+    //$$ public static Tag<Item> NESTABLE_WHEN_EMPTY;
+    //$$ public static Tag<Block> NOT_EMPTY_NESTABLE;
     //#elseif MC < 11800
-    public static final Tag.Identified<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
-    public static final Tag.Identified<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
-    public static final Tag.Identified<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+    public static Tag.Identified<Item> NOT_NESTABLE;
+    public static Tag.Identified<Item> NESTABLE_WHEN_EMPTY;
+    public static Tag.Identified<Block> NOT_EMPTY_NESTABLE;
     //#else
-    //$$    public static final TagKey<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
-    //$$    public static final TagKey<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
-    //$$    public static final TagKey<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+    //$$    public static TagKey<Item> NOT_NESTABLE;
+    //$$    public static TagKey<Item> NESTABLE_WHEN_EMPTY;
+    //$$    public static TagKey<Block> NOT_EMPTY_NESTABLE;
     //#endif
+
+
+    static {
+        //#if MC < 11600
+        //$$ NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+        //$$ NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+        //$$ NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+        //#elseif MC < 11800
+        NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+        NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+        NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+        //#else
+        //$$   NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+        //$$   NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+        //$$   NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+        //#endif
+
+    }
+
+
+
+    public static void registerTags() {
+
+/*
+
+        //#if MC < 11600
+        //$$ Tag<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+        //$$ Tag<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+        //$$ Tag<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+        //#elseif MC < 11800
+        Tag.Identified<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+        Tag.Identified<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+        Tag.Identified<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+        //#else
+        //$$    TagKey<Item> NOT_NESTABLE = ItemTags.register("fttb:not_nestable");
+        //$$    TagKey<Item> NESTABLE_WHEN_EMPTY = ItemTags.register("fttb:nestable_when_empty");
+        //$$    TagKey<Block> NOT_EMPTY_NESTABLE = BlockTags.register("fttb:not_empty_nestable");
+        //#endif
+*/
+
+
+
+
+    }
+
+
+
+
+
+
 
 
 
@@ -54,22 +99,34 @@ public class ModTags {
 
 
     public static boolean isBlockInTag(Block block, Object tag) {
-        
-        //#if MC < 11800
-        return ((Tag<Block>) tag).contains(block);
-        //#else
-        //$$return block.getRegistryEntry().isIn((TagKey<Block>) tag);
-        //#endif
+
+        try {
+            
+            //#if MC < 11800
+            return ((Tag<Block>) tag).contains(block);
+            //#else
+            //$$return block.getRegistryEntry().isIn((TagKey<Block>) tag);
+            //#endif
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public static boolean isItemInTag(Item item, Object tag) {
 
+
+        try {
 
         //#if MC < 11800
         return ((Tag<Item>)tag).contains(item);
         //#else
         //$$return item.getRegistryEntry().isIn((TagKey<Item>) tag);
         //#endif
+
+        } catch (Exception e) {
+            return (Block.getBlockFromItem(item) instanceof ShulkerBoxBlock);
+        }
     }
 
 
