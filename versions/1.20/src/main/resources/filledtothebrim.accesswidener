@@ -1,0 +1,9 @@
+accessWidener v1 named
+
+
+accessible method net/minecraft/registry/tag/ItemTags of (Ljava/lang/String;)Lnet/minecraft/registry/tag/TagKey;
+accessible method net/minecraft/registry/tag/BlockTags of (Ljava/lang/String;)Lnet/minecraft/registry/tag/TagKey;
+
+
+
+
