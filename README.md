@@ -18,7 +18,7 @@ This Mod allows empty Shulker Boxes to be put inside other Shulker Boxes.
 
 **If the mod does not work with the datapack, redownload the datapack and update the mod**
 
-(datapack v1 is for 1.2.2 and below, all further versions use atlead v2)
+(datapack v1 is for 1.2.2 and below, all further versions use v2)
 
 
 
