@@ -21,14 +21,18 @@
 package tech.lemonlime.filledtothebrim;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ModMetadata;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class FilledToTheBrim implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("FilledToTheBrim");
-	public static final String MOD_ID = "filledtothebrim";
+	public static final String MODID = "filledtothebrim";
 	public static String MOD_VERSION = "unknown";
 	public static String MOD_NAME = "unknown";
 
@@ -38,12 +42,45 @@ public class FilledToTheBrim implements ModInitializer {
 
 		LOGGER.info("[Filled To the Brim]: Loading...");
 
-		ModMetadata metadata = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(RuntimeException::new).getMetadata();
+		ModMetadata metadata = FabricLoader.getInstance().getModContainer(MODID).orElseThrow(RuntimeException::new).getMetadata();
 		MOD_NAME = metadata.getName();
 		MOD_VERSION = metadata.getVersion().getFriendlyString();
 
 		ModTags.registerTags();
 
+
+		//#if MC < 11700
+		//LEGACY main pack
+		FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer ->
+				ResourceManagerHelper.registerBuiltinResourcePack(
+						new Identifier(MODID,"enable_legacy"), modContainer,
+						ResourcePackActivationType.DEFAULT_ENABLED));
+
+
+		//LEGACY magenta pack..
+		FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer ->
+				ResourceManagerHelper.registerBuiltinResourcePack(
+						new Identifier(MODID,"disable_magenta_legacy"), modContainer,
+						ResourcePackActivationType.NORMAL));
+
+
+
+		//#else
+
+
+		//main pack
+		//$$ FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MODID,"enable"), modContainer, ResourcePackActivationType.DEFAULT_ENABLED));
+
+
+		//magenta pack..
+		//$$ FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MODID,"disable_magenta"), modContainer, ResourcePackActivationType.NORMAL))
+
+
+		//1.17+ bundle fix
+		//$$ FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MODID,"bundle_fix"), modContainer, ResourcePackActivationType.DEFAULT_ENABLED));
+
+
+		//#endif
 
 		LOGGER.info("[Filled To the Brim]: Loaded!");
 
