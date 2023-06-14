@@ -73,7 +73,7 @@ public class FilledToTheBrim implements ModInitializer {
 
 
 		//magenta pack..
-		//$$ FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MODID,"disable_magenta"), modContainer, ResourcePackActivationType.NORMAL))
+		//$$ FabricLoader.getInstance().getModContainer(MODID).ifPresent(modContainer -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MODID,"disable_magenta"), modContainer, ResourcePackActivationType.NORMAL));
 
 
 		//1.17+ bundle fix
