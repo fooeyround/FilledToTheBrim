@@ -113,6 +113,22 @@ public class ModTags {
         }
     }
 
+
+    public static boolean isBlockInTag(Block block, Object tag, boolean defaultValue) {
+
+        try {
+
+            //#if MC < 11800
+            return ((Tag<Block>) tag).contains(block);
+            //#else
+            //$$return block.getRegistryEntry().isIn((TagKey<Block>) tag);
+            //#endif
+
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
     public static boolean isItemInTag(Item item, Object tag) {
 
 

@@ -4,6 +4,7 @@
   "package": "tech.lemonlime.filledtothebrim.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BundleItemMixin",
     "ShulkerBoxBlockEntityMixin",
     "ShulkerBoxSlotMixin"
   ],
