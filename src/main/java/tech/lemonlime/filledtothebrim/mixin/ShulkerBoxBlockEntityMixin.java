@@ -12,6 +12,7 @@ package tech.lemonlime.filledtothebrim.mixin;
 
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.item.ItemStack;
@@ -32,9 +33,8 @@ public abstract class ShulkerBoxBlockEntityMixin {
 
     @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
     private void canInsert(int slot, ItemStack stack, @Nullable Direction dir, CallbackInfoReturnable<Boolean> ci) {
-        var be = (BlockEntity)(Object)this);
-        var world = be.getWorld();
-        var block = (world != null && be.getPos() != null) ? world.getBlockState(be.getPos()).getBlock() : Blocks.SHULKER_BOX;
+        BlockEntity be = (BlockEntity)(Object)this);
+        Block block = (world != null && be.getPos() != null) ? be.getWorld().getBlockState(be.getPos()).getBlock() : Blocks.SHULKER_BOX;
         ci.setReturnValue(ShulkerBoxHelper.canInsertIntoShulkerBox(block,stack));
     }
 }
