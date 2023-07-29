@@ -11,6 +11,7 @@
 package tech.lemonlime.filledtothebrim.mixin;
 
 
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.item.ItemStack;
