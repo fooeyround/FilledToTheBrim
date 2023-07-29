@@ -36,6 +36,5 @@ public abstract class ShulkerBoxBlockEntityMixin {
         var world = be.getWorld();
         var block = (world != null && be.getPos() != null) ? world.getBlockState(be.getPos()).getBlock() : Blocks.SHULKER_BOX;
         ci.setReturnValue(ShulkerBoxHelper.canInsertIntoShulkerBox(block,stack));
-        }
     }
 }
